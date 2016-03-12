@@ -1,5 +1,8 @@
-# suddmore.github.io
+# suddmore.com
 
-node less-watch-compiler.js less css
+installed: Dead Simple LESS Watch Compiler
+tutorial: http://www.hongkiat.com/blog/less-auto-compile/
+source: https://github.com/jonycheung/deadsimple-less-watch-compiler
 
-http://www.hongkiat.com/blog/less-auto-compile/
+run: node less.js less css
+
