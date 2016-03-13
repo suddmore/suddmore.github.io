@@ -1,0 +1,167 @@
+/*  ==========================================================================
+    $TOC - TYPE
+
+    1. elements
+    2. fontface
+    3. size
+    4. weight
+    5. line-height
+    6. utilities
+    ========================================================================== */
+
+
+
+/*  $ELEMENTS
+    ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-size: inherit;
+    font-weight: inherit;
+    .line-height--base;
+    color: inherit;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    list-style-image: none;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+ul > *:last-child{
+    margin-bottom: 0;
+}
+    li {
+        line-height: inherit;
+        color: inherit;
+        display: list-item;
+        margin-top: 0;
+        margin-bottom: 0;
+        .break-word;
+    }
+
+
+
+/*  $FONTFACE
+    ========================================================================== */
+
+/* Google Fonts [https://www.google.com/core/fonts/] */
+@font-display:                      'Rajdhani', sans-serif;;
+@font-sans:                         'alternate-gothic-no-3-d', sans-serif;
+
+/* Web Safe Fonts [http://www.w3schools.com/cssref/css_websafe_fonts.asp] */
+@font-monospace:                    'Courier', courier, monospace;
+
+.font--display                      { font-family: @font-display; }
+.font--sans                         { font-family: @font-sans; }
+.font--monospace {
+    font-family: @font-monospace;
+    text-rendering: auto;
+}
+
+
+
+
+/*  $SIZE
+    ========================================================================== */
+
+@font-smaller:                      8px;
+@font-small:                        11px;
+@font-base:                         13px;
+@font-large:                        16px;
+@font-larger:                       18px;
+@font-largest:                      20px;
+@font-big:                          25px;
+@font-bigger:                       30px;
+@font-biggest:                      40px;
+@font-huge:                         50px;
+@font-huger:                        60px;
+@font-hugest:                       70px;
+
+.font--smaller                      { font-size: @font-smaller; }
+.font--small                        { font-size: @font-small; }
+.font--base                         { font-size: @font-base; }
+.font--large                        { font-size: @font-large; }
+.font--larger                       { font-size: @font-larger; }
+.font--largest                      { font-size: @font-largest; }
+.font--big                          { font-size: @font-big; }
+.font--bigger                       { font-size: @font-bigger; }
+.font--biggest                      { font-size: @font-biggest; }
+.font--huge                         { font-size: @font-huge; }
+.font--huger                        { font-size: @font-huger; }
+.font--hugest                       { font-size: @font-hugest; }
+
+
+
+/*  $WEIGHT
+    ========================================================================== */
+
+@font-300:                          300;
+@font-400:                          400;
+@font-700:                          700;
+@font-900:                          900;
+
+.font--400                          { font-weight: @font-400; }
+.font--700                          { font-weight: @font-700; }
+.font--900                          { font-weight: @font-900; }
+
+
+
+/*  $LINE-HEIGHT
+    ========================================================================== */
+
+@line-height--none:                 0;
+@line-height--tighter:              0.9em;
+@line-height--tight:                1em;
+@line-height--base:                 1.2em;
+@line-height--loose:                1.6em;
+@line-height--looser:               2em;
+
+.line-height--none                  { line-height: @line-height--none; }
+.line-height--tighter               { line-height: @line-height--tighter; }
+.line-height--tight                 { line-height: @line-height--tight; }
+.line-height--base                  { line-height: @line-height--base; }
+.line-height--loose                 { line-height: @line-height--loose; }
+.line-height--looser                { line-height: @line-height--looser; }
+
+
+
+/*  $LINE-HEIGHT
+    ========================================================================== */
+
+.letter-spacing--tighter            { letter-spacing: -.06em; }
+.letter-spacing--tight              { letter-spacing: -.02em; }
+
+
+
+/*  $UTLITIES
+    ========================================================================== */
+.text--left                         { text-align: left; }
+.text--right                        { text-align: right; }
+.text--center                       { text-align: center; }
+.text--justify                      { text-align: justify; }
+.text--uppercase                    { text-transform: uppercase; }
+.text--capitalize                   { text-transform: capitalize; }
+.text--underline                    { text-decoration: underline; }
+.text-rendering--legibility         { text-rendering: optimizeLegibility; }
+.font--italic                       { font-style: italic; }
+.nowrap                             { white-space: nowrap; }
+.pre-line                           { white-space: pre-line; }
+.break-all                          { word-break: break-all; }
+.break-word {
+    word-wrap: break-word;
+    word-break: break-word;
+}
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
