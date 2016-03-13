@@ -36,6 +36,14 @@ module.exports = function(grunt) {
           "build/css/style.css": "src/less/style.less" // destination file and source file
         }
       }
+    },
+    concurrent: {
+        target: {
+          tasks: [['jshint', 'less', 'watch'], 'serve'],
+          options: {
+              logConcurrentOutput: true
+          }
+        }
     }
   });
 
@@ -43,10 +51,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-serve');
-  grunt.registerTask('default', [
-    'jshint',
-    'less',
-    'watch'
-    // 'serve'
-  ]);
+  grunt.loadNpmTasks('grunt-concurrent');
+  grunt.registerTask('default', ['concurrent:target']);
 };
