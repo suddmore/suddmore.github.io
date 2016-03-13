@@ -12,26 +12,25 @@ module.exports = function(grunt) {
     watch: {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint'],
-      styles: {
+      less: {
         files: ['src/**/*.less'], // which files to watch
         tasks: ['less'],
         options: {
-          nospawn: true
+          nospawn: true,
+          event: 'all',
+          reload: true,
         }
       }
     },
     serve: {
         options: {
             port: 9001,
-            path: '../../index.html'
         }
     },
     less: {
       development: {
         options: {
-          compress: true,
-          yuicompress: true,
-          optimization: 2
+          compress: false
         },
         files: {
           "build/css/style.css": "src/less/style.less" // destination file and source file
@@ -42,8 +41,12 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-serve');
-  grunt.registerTask('default', ['less', 'watch']);
-  grunt.registerTask('default', ['jshint']);
-
+  grunt.registerTask('default', [
+    'jshint',
+    'less',
+    'watch'
+    // 'serve'
+  ]);
 };
