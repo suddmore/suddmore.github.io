@@ -93,10 +93,25 @@ body {
             opacity: 1;
         }
     }
+    .main__connected {
+        opacity: 0;
+        transform: translate(0, 10px);
+        animation: main-connected 1s ease-out 1000ms forwards;
+    }
+    @keyframes main-connected {
+        0% {
+            transform: translate(0, 10px);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
     .main__social {
         opacity: 0;
         transform: translate(0, 10px);
-        animation: main-social 1s ease-out 1000ms forwards;
+        animation: main-social 1s ease-out 1200ms forwards;
     }
     @keyframes main-social {
         0% {
