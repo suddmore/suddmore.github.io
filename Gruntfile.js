@@ -6,14 +6,6 @@ module.exports = function(grunt) {
         files: ['<%= jshint.files %>'],
         tasks: ['jshint']
       },
-      copy: {
-        files: ['src/*', 'src/**/*'],
-        tasks: ['copy']  
-      },
-      clean: {
-        files: ['src/*', 'src/**/*'],
-        tasks: ['clean']  
-      },
       less: {
         files: ['src/**/*.less'], // which files to watch
         tasks: ['less'],
@@ -47,21 +39,20 @@ module.exports = function(grunt) {
         }
       }
     },
-    copy: {
-      main: {
-        expand: true,
-        cwd: 'src',
-        src: ['**/*', '*', '!less'],
-        dest: 'build/'
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('autoprefixer')({browsers: ['last 3 version']})
+        ]
       },
+      dist: {
+        src: './build/css/style.css'
+      }
     },
-    // clean: {
-    //   build: ['src/**/*', 'src/*', '!less'],
-    //   release: ['build/']
-    // },
     concurrent: {
         target: {
-          tasks: [['jshint', 'copy', 'clean', 'less', 'watch'], 'serve'],
+          tasks: [['jshint', 'less', 'postcss', 'watch'], 'serve'],
           options: {
               logConcurrentOutput: true
           }
@@ -71,9 +62,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-serve');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.registerTask('default', ['concurrent:target']);

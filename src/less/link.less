@@ -1,0 +1,35 @@
+/*  ==========================================================================
+    $TOC - LINK
+
+    1. elements
+    2. link
+    ========================================================================== */
+
+
+
+/*  $ELEMENTS
+    ========================================================================== */
+
+a {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+
+
+/*  $LINK
+    ========================================================================== */
+
+.link  {
+    text-decoration: none;
+}
+.link:hover:not([class*="icon--"]) {
+    text-decoration: underline;
+}
+[class*="icon--"].link:hover {
+    transform: scale(1.2);
+}
