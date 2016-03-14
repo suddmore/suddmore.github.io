@@ -2,6 +2,10 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     watch: {
+      options: {
+        interrupt: true,
+        event: ['all']
+      },
       jshint: {
         files: ['<%= jshint.files %>'],
         tasks: ['jshint']
