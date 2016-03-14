@@ -1,0 +1,58 @@
+/*  ==========================================================================
+    $TOC - SUDDMORE
+
+    1. body
+    2. video
+    3. main
+    ========================================================================== */
+
+
+
+/*  $BODY
+    ========================================================================== */
+
+body {
+    overflow: hidden;
+}
+
+
+
+/*  $VIDEO
+    ========================================================================== */
+
+.background-video {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/*  $MAIN
+    ========================================================================== */
+
+.main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // overflow-y: scroll;
+    z-index: 100;
+}
+    .main:after {
+        content: '';
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, .70), rgba(0, 0, 0, .95));
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }  
+    .main > * {
+        position: relative;
+        z-index: 100;
+    }
