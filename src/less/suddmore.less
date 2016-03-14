@@ -12,7 +12,7 @@
     ========================================================================== */
 
 body {
-    overflow: hidden;
+    overflow: scroll;
     background-color: black;
 }
 
@@ -45,12 +45,8 @@ body {
     ========================================================================== */
 
 .main {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    // overflow-y: scroll;
+    max-width: 1000px;
+    position: relative;
     z-index: 100;
 }
     .main:after {
@@ -64,6 +60,17 @@ body {
     }  
     .main > * {
         position: relative;
+        z-index: 100;
+    }
+
+    .main__content {
+        max-width: 1000px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // overflow-y: scroll;
         z-index: 100;
     }
     .main__logo {
@@ -84,7 +91,7 @@ body {
     .main__blurb {
         opacity: 0;
         transform: translate(0, 10px);
-        animation: main-blurb 1s ease-out 800ms forwards;
+        animation: main-blurb 1s ease-out 900ms forwards;
     }
     @keyframes main-blurb {
         0% {
