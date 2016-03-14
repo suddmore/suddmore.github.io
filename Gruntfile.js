@@ -6,14 +6,22 @@ module.exports = function(grunt) {
         files: ['<%= jshint.files %>'],
         tasks: ['jshint']
       },
+      lesslint: {
+        files: ['./src/less/style.less'],
+        tasks: ['lesslint']
+      },
       less: {
-        files: ['src/**/*.less'], // which files to watch
+        files: ['./src/**/*.less'], // which files to watch
         tasks: ['less'],
         options: {
           nospawn: true,
           event: 'all',
           reload: true,
         }
+      },
+      postcss: {
+        files: ['./build/css/style.css'],
+        tasks: ['postcss']
       }
     },
     jshint: {
@@ -24,10 +32,12 @@ module.exports = function(grunt) {
         }
       }
     },
-    serve: {
-        options: {
-            port: 9001,
-        }
+    lesslint: {
+      src: ['./src/less/style.less'],
+      options: {
+        failOnError: false,
+        failOnWarning: false
+      }
     },
     less: {
       development: {
@@ -35,7 +45,7 @@ module.exports = function(grunt) {
           compress: false
         },
         files: {
-          "build/css/style.css": "src/less/style.less" // destination file and source file
+          "./build/css/style.css": "./src/less/style.less" // destination file and source file
         }
       }
     },
@@ -50,22 +60,34 @@ module.exports = function(grunt) {
         src: './build/css/style.css'
       }
     },
-    concurrent: {
-        target: {
-          tasks: [['jshint', 'less', 'postcss', 'watch'], 'serve'],
-          options: {
-              logConcurrentOutput: true
-          }
+    browserSync: {
+        bsFiles: {
+            src : ['./src/css/*.css', './src/img/*', './src/vid/*', '*.html']
+        },
+        options: {
+            server: {
+                baseDir: "./"
+            },
+            ui: {
+                port: 8080
+            }
         }
+    },
+    concurrent: {
+      target: {
+        tasks: [['jshint', 'lesslint', 'less', 'postcss', 'watch'], 'browserSync'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
     }
   });
-
+  grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-lesslint');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-postcss');
-  grunt.loadNpmTasks('grunt-serve');
-  grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browser-sync');
   grunt.registerTask('default', ['concurrent:target']);
 };
