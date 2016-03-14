@@ -11,11 +11,11 @@ module.exports = function(grunt) {
         tasks: ['jshint']
       },
       lesslint: {
-        files: ['./src/less/style.less'],
+        files: ['./build/less/style.less'],
         tasks: ['lesslint']
       },
       less: {
-        files: ['./src/**/*.less'], // which files to watch
+        files: ['./build/**/*.less'], // which files to watch
         tasks: ['less'],
         options: {
           nospawn: true,
@@ -24,12 +24,12 @@ module.exports = function(grunt) {
         }
       },
       postcss: {
-        files: ['./build/css/style.css'],
+        files: ['./src/css/style.css'],
         tasks: ['postcss']
       }
     },
     jshint: {
-      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      files: ['Gruntfile.js', 'build/**/*.js', 'test/**/*.js'],
       options: {
         globals: {
           jQuery: true
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       }
     },
     lesslint: {
-      src: ['./src/less/style.less'],
+      src: ['./build/less/style.less'],
       options: {
         failOnError: false,
         failOnWarning: false
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
           compress: false
         },
         files: {
-          "./build/css/style.css": "./src/less/style.less" // destination file and source file
+          "./src/css/style.css": "./build/less/style.less" // destination file and source file
         }
       }
     },
@@ -61,12 +61,12 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: './build/css/style.css'
+        src: './src/css/style.css'
       }
     },
     browserSync: {
         bsFiles: {
-            src : ['./build/css/*.css', './build/img/*', './build/vid/*', '*.html']
+            src : ['./src/css/*.css', './src/img/*', './src/vid/*', '*.html']
         },
         options: {
             server: {

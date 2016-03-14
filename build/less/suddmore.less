@@ -12,7 +12,8 @@
     ========================================================================== */
 
 body {
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     background-color: black;
 }
 
@@ -51,7 +52,7 @@ body {
 }
     .main:after {
         content: '';
-        background-image: linear-gradient(45deg, rgba(0, 0, 0, .90), rgba(25, 25, 25, .90));
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, .90), rgba(23, 28, 34, .90));
         position: fixed;
         top: 0;
         right: 0;
@@ -60,17 +61,6 @@ body {
     }  
     .main > * {
         position: relative;
-        z-index: 100;
-    }
-
-    .main__content {
-        max-width: 1000px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        // overflow-y: scroll;
         z-index: 100;
     }
     .main__logo {
@@ -91,7 +81,7 @@ body {
     .main__blurb {
         opacity: 0;
         transform: translate(0, 10px);
-        animation: main-blurb 1s ease-out 900ms forwards;
+        animation: main-blurb 1s ease-out 800ms forwards;
     }
     @keyframes main-blurb {
         0% {
@@ -103,7 +93,21 @@ body {
             opacity: 1;
         }
     }
-
+    .main__social {
+        opacity: 0;
+        transform: translate(0, 10px);
+        animation: main-social 1s ease-out 1000ms forwards;
+    }
+    @keyframes main-social {
+        0% {
+            transform: translate(0, 10px);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
 
 
 

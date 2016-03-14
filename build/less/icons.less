@@ -1,0 +1,68 @@
+/*  ==========================================================================
+    $TOC - ICONS
+
+    1. icons
+    2. fix
+    ========================================================================== */
+
+
+/*  $ICONS
+    ========================================================================== */
+
+@font-face {
+    font-family: 'suddmore';
+    src:    url('../../fonts/suddmore.eot?ru30fj');
+    src:    url('../../fonts/suddmore.eot?ru30fj#iefix') format('embedded-opentype'),
+        url('../../fonts/suddmore.woff2?ru30fj') format('woff2'),
+        url('../../fonts/suddmore.ttf?ru30fj') format('truetype'),
+        url('../../fonts/suddmore.woff?ru30fj') format('woff'),
+        url('../../fonts/suddmore.svg?ru30fj#suddmore') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon--"], [class*=" icon--"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'suddmore' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--angel-list:before {
+    content: "\e905";
+}
+.icon--twitter:before {
+    content: "\e900";
+}
+.icon--medium:before {
+    content: "\e901";
+}
+.icon--linkedin:before {
+    content: "\e902";
+}
+.icon--instagram:before {
+    content: "\e903";
+}
+.icon--facebook:before {
+    content: "\e904";
+}
+
+
+
+/*  $FIX
+    ========================================================================== */
+[class^="icon--"],
+[class*=" icon--"],
+[class^="icon--"]:before,
+[class*=" icon--"]:before {
+    line-height: inherit;
+    display: inline-block;
+}
