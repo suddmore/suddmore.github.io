@@ -12,9 +12,18 @@
     ========================================================================== */
 
 body {
+    .flex--container;  
+    .flex-wrap--wrap;  
+    .flex-justify-content--center;  
+    .flex-align-items--flex-start;
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: black;
+}
+@media only screen and (min-height: 800px) {
+    body {
+        .flex-align-items--center;
+    }
 }
 
 
