@@ -13,6 +13,7 @@
 
 body {
     overflow: hidden;
+    background-color: black;
 }
 
 
@@ -27,6 +28,15 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: background-video 500ms linear;
+}
+@keyframes background-video {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 
@@ -45,7 +55,7 @@ body {
 }
     .main:after {
         content: '';
-        background-image: linear-gradient(180deg, rgba(0, 0, 0, .70), rgba(0, 0, 0, .95));
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, .90), rgba(25, 25, 25, .90));
         position: fixed;
         top: 0;
         right: 0;
@@ -56,3 +66,41 @@ body {
         position: relative;
         z-index: 100;
     }
+    .main__logo {
+        opacity: 0;
+        transform: translate(0, 10px);
+        animation: main-logo 1s ease-out 600ms forwards;
+    }
+    @keyframes main-logo {
+        0% {
+            transform: translate(0, 10px);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+    .main__blurb {
+        opacity: 0;
+        transform: translate(0, 10px);
+        animation: main-blurb 1s ease-out 800ms forwards;
+    }
+    @keyframes main-blurb {
+        0% {
+            transform: translate(0, 10px);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+
+
+
+
+
+
+
+

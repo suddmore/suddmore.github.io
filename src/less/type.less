@@ -53,19 +53,11 @@ ul > *:last-child{
     ========================================================================== */
 
 /* Google Fonts [https://www.google.com/core/fonts/] */
-@font-display:                      'Rajdhani', sans-serif;;
-@font-sans:                         'alternate-gothic-no-3-d', sans-serif;
+@font-sans:                         "alternate-gothic-no-3-d", sans-serif;
+@font-body:                         'Roboto Slab', serif;
 
-/* Web Safe Fonts [http://www.w3schools.com/cssref/css_websafe_fonts.asp] */
-@font-monospace:                    'Courier', courier, monospace;
-
-.font--display                      { font-family: @font-display; }
 .font--sans                         { font-family: @font-sans; }
-.font--monospace {
-    font-family: @font-monospace;
-    text-rendering: auto;
-}
-
+.font--body                         { font-family: @font-body; }
 
 
 
@@ -108,6 +100,7 @@ ul > *:last-child{
 @font-700:                          700;
 @font-900:                          900;
 
+.font--300                          { font-weight: @font-300; }
 .font--400                          { font-weight: @font-400; }
 .font--700                          { font-weight: @font-700; }
 .font--900                          { font-weight: @font-900; }
