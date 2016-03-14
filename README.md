@@ -1,10 +1,10 @@
 # suddmore.com
 
-installed: Dead Simple LESS Watch Compiler
-
-tutorial: http://www.hongkiat.com/blog/less-auto-compile/
-
-source: https://github.com/jonycheung/deadsimple-less-watch-compiler
-
-
-run: node less.js less css
+grunt tasks:
+	- grunt-concurrent
+	- grunt-contrib-jshint
+  	- grunt-lesslint
+  	- grunt-contrib-less
+  	- grunt-postcss
+  	- grunt-contrib-watch
+  	- grunt-browser-sync
